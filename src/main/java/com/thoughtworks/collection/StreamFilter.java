@@ -6,15 +6,24 @@ import java.util.stream.Collectors;
 public class StreamFilter {
 
     public List<Integer> filterEven(List<Integer> numbers) {
-        return numbers.stream().filter(number -> number % 2 == 0).collect(Collectors.toList());
+        return numbers
+                .stream()
+                .filter(number -> number % 2 == 0)
+                .collect(Collectors.toList());
     }
 
     public List<String> filterEndWithS(List<String> words) {
-        return words.stream().filter(word -> word.toLowerCase().endsWith("s")).collect(Collectors.toList());
+        return words
+                .stream()
+                .filter(word -> word.toLowerCase().endsWith("s"))
+                .collect(Collectors.toList());
     }
 
     public List<Integer> getCommonElements(List<Integer> numbers, List<Integer> anotherNumbers) {
-        return numbers.stream().filter(anotherNumbers::contains).collect(Collectors.toList());
+        return numbers
+                .stream()
+                .filter(anotherNumbers::contains)
+                .collect(Collectors.toList());
     }
 
 

@@ -7,7 +7,7 @@ public class StreamReduce {
     public int getLastOdd(List<Integer> numbers) {
         return numbers
                 .stream()
-                .reduce(0, (prev, curr) -> curr%2==1 ? curr : prev);
+                .reduce(-1, (prev, curr) -> curr%2==1 ? curr : prev);
     }
 
     public String getLongest(List<String> words) {
@@ -19,7 +19,6 @@ public class StreamReduce {
     public int getTotalLength(List<String> words) {
         return words
                 .stream()
-                .reduce("", String::concat)
-                .length();
+                .reduce(0, (prev, curr) -> prev + curr.length(), Integer::sum);
     }
 }

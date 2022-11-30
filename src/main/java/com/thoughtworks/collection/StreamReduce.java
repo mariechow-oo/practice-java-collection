@@ -1,5 +1,6 @@
 package com.thoughtworks.collection;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class StreamReduce {
@@ -13,7 +14,9 @@ public class StreamReduce {
     public String getLongest(List<String> words) {
         return words
                 .stream()
-                .reduce("", (prev, curr) -> curr.length()>prev.length() ? curr : prev);
+                .max(Comparator.comparingInt(String::length))
+                .get();
+//                .reduce("", (prev, curr) -> curr.length()>prev.length() ? curr : prev);
     }
 
     public int getTotalLength(List<String> words) {
